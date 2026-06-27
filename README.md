@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bilimnur — ta'lim platformasi (boshlang'ich sayt)
 
-## Getting Started
+[bilimnur.uz](https://bilimnur.uz) — online va offline kurslar olib boriladigan ta'lim
+platformasining birinchi (tanishtiruv) versiyasi. Bu bitta sahifali (single-page) landing sayt:
+platforma haqida ma'lumot, kurs yo'nalishlari ("Tez orada"), asoschilar kitoblari (telefon orqali
+sotib olish) va bog'lanish bo'limlaridan iborat.
 
-First, run the development server:
+## Texnologiyalar
+
+- **Next.js** (App Router) + **TypeScript**
+- **Tailwind CSS v4** (design tokenlar `app/globals.css` da)
+- **Inter** shrift (`next/font`)
+- **framer-motion** — scrolldagi animatsiyalar
+- **lucide-react** — ikonkalar
+
+## Ishga tushirish
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # production serverni ishga tushirish
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Loyiha tuzilmasi
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  layout.tsx        # <html lang="uz">, Inter, SEO metadata
+  page.tsx          # barcha bo'limlarni yig'adi
+  globals.css       # Tailwind + design tokenlar (ranglar shu yerda)
+components/
+  layout/           # Navbar, Footer, Logo
+  sections/         # Hero, About, Courses, Books, Contact
+  ui/               # Container, Button, Card, Badge, SectionHeading, Reveal, Icon, SocialIcon
+lib/
+  site.ts           # sayt konfiguratsiyasi: nom, telefon, telegram, instagram, email
+  data.ts           # kontent: kurslar, kitoblar, afzalliklar, statistika
+public/
+  logo.svg          # logo (almashtiriladi)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Sozlash / tahrirlash (eng muhim joylar)
 
-## Learn More
+| Nima | Qayerda |
+|------|---------|
+| Telefon, email, ijtimoiy tarmoq havolalari, manzil | `lib/site.ts` |
+| Kurslar va kitoblar matni | `lib/data.ts` |
+| Ranglar (brend palitrasi) | `app/globals.css` → `@theme` bloki |
+| Logo | `public/logo.svg` (faylni almashtiring) |
 
-To learn more about Next.js, take a look at the following resources:
+> **Eslatma:** hozircha aloqa ma'lumotlari va kitob matnlari placeholder. Aniq qiymatlarni
+> `lib/site.ts` va `lib/data.ts` dan yangilang. Rang palitrasi vaqtinchalik ko'k — logoga moslab
+> `@theme` dagi `--color-primary-*` qiymatlarini o'zgartirish kifoya.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Kelajakda
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Platforma keyinchalik kengaytiriladi (kurslarga yozilish, foydalanuvchi kabineti, to'lov va h.k.) —
+arxitektura shunga tayyor qilingan.

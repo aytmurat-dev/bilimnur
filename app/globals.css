@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
+/*
+  ============================================================
+  bilimnur.uz — Design tokens (single source of truth)
+  Ranglarni logoga moslab o'zgartirish uchun shu yerni tahrirlang.
+  ============================================================
+*/
+@theme {
+  /* Brand — Primary (chuqur ko'k). Logo kelgach shu shkala moslanadi. */
+  --color-primary-50: #eef3ff;
+  --color-primary-100: #dbe5ff;
+  --color-primary-200: #bfd1ff;
+  --color-primary-300: #93b1ff;
+  --color-primary-400: #6188ff;
+  --color-primary-500: #3b62ff;
+  --color-primary-600: #2147eb;
+  --color-primary-700: #1a37d1;
+  --color-primary-800: #1c31a8;
+  --color-primary-900: #1c2f85;
+  --color-primary-950: #141d50;
+
+  /* Accent — oltinrang/amber (CTA va belgilar uchun) */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+
+  /* Neytral (matn/fon) — sovuq kulrang */
+  --color-ink-50: #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
+  --color-ink-950: #020617;
+
+  /* Tipografika */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+
+  /* Shadow (yumshoq, professional) */
+  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-glow: 0 18px 50px -12px rgba(33, 71, 235, 0.35);
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--color-ink-900);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Sticky navbar uchun anchor offseti */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Tanlangan matn rangi */
+::selection {
+  background: var(--color-primary-600);
+  color: #fff;
+}
+
+/* Nozik scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-300) transparent;
+}
+
+/* Harakatni kamaytirish (a11y) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Yordamchi: nozik fon naqshi (grid) */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
 }

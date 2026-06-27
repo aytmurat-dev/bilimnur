@@ -1,0 +1,15 @@
+<svg width="190" height="44" viewBox="0 0 190 44" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bilimnur">
+  <defs>
+    <linearGradient id="bnGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b62ff"/>
+      <stop offset="1" stop-color="#1c2f85"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="2" width="40" height="40" rx="12" fill="url(#bnGrad)"/>
+  <!-- stylized graduation cap / ray of knowledge -->
+  <path d="M20 11L31 16.5L20 22L9 16.5L20 11Z" fill="#fde68a"/>
+  <path d="M13 19.5V25.5C13 25.5 16 28.5 20 28.5C24 28.5 27 25.5 27 25.5V19.5L20 23L13 19.5Z" fill="#ffffff"/>
+  <circle cx="31" cy="20" r="1.6" fill="#fde68a"/>
+  <path d="M31 21.4V27" stroke="#fde68a" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="52" y="29" font-family="Inter, system-ui, sans-serif" font-size="21" font-weight="700" letter-spacing="-0.5" fill="#0f172a">Bilim<tspan fill="#2147eb">nur</tspan></text>
+</svg>
