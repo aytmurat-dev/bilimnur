@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone } from "lucide-react";
 import { TelegramIcon, InstagramIcon } from "@/components/ui/SocialIcon";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -27,18 +27,11 @@ const channels = [
     icon: InstagramIcon,
     external: true,
   },
-  {
-    label: "Email",
-    value: site.contact.email,
-    href: site.contact.emailHref,
-    icon: Mail,
-    external: false,
-  },
 ];
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-ink-50 py-20 sm:py-28">
+    <section id="contact" className="bg-ink-50 py-14 sm:py-20 lg:py-28">
       <Container>
         <SectionHeading
           eyebrow="Bog'lanish"
@@ -46,28 +39,28 @@ export function Contact() {
           description="Savollaringiz bormi yoki kurslar va kitoblar haqida ma'lumot kerakmi? Quyidagi kanallar orqali biz bilan tez bog'lanishingiz mumkin."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Aloqa kanallari */}
-          <div className="grid gap-4 sm:grid-cols-2">
+        <div className="mt-14 max-w-4xl mx-auto">
+          {/* Aloqa kanallari - 3 ustunli muvozanatli tartib */}
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
             {channels.map((ch, i) => {
               const ChIcon = ch.icon;
               return (
-                <Reveal key={ch.label} delay={i * 0.06}>
+                <Reveal key={ch.label} delay={i * 0.08} className="h-full">
                   <a
                     href={ch.href}
                     {...(ch.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="group flex h-full items-center gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-card"
+                    className="group flex h-full items-center gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                   >
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-600 group-hover:text-white">
                       <ChIcon className="h-6 w-6" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-xs font-medium uppercase tracking-wide text-ink-400">
+                      <span className="block text-xs font-bold uppercase tracking-wider text-ink-500">
                         {ch.label}
                       </span>
-                      <span className="block truncate font-semibold text-ink-900">
+                      <span className="block truncate font-semibold text-ink-900 mt-0.5">
                         {ch.value}
                       </span>
                     </span>
@@ -76,41 +69,6 @@ export function Contact() {
               );
             })}
           </div>
-
-          {/* Manzil / ish vaqti kartasi */}
-          <Reveal delay={0.1}>
-            <div className="flex h-full flex-col justify-between gap-6 rounded-3xl bg-gradient-to-br from-primary-700 to-primary-950 p-8 text-white shadow-card sm:p-10">
-              <div>
-                <h3 className="text-2xl font-bold">Tashrif buyuring</h3>
-                <p className="mt-2 text-primary-100">
-                  Offline darslar va maslahat uchun bizni kuting.
-                </p>
-              </div>
-              <ul className="space-y-5">
-                <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent-400" />
-                  <div>
-                    <p className="text-sm text-primary-200">Manzil</p>
-                    <p className="font-medium">{site.contact.address}</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Clock className="mt-0.5 h-5 w-5 shrink-0 text-accent-400" />
-                  <div>
-                    <p className="text-sm text-primary-200">Ish vaqti</p>
-                    <p className="font-medium">{site.contact.workHours}</p>
-                  </div>
-                </li>
-              </ul>
-              <a
-                href={site.contact.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-base font-semibold text-ink-950 transition-colors hover:bg-accent-400"
-              >
-                <Phone className="h-5 w-5" />
-                Hoziroq qo'ng'iroq qiling
-              </a>
-            </div>
-          </Reveal>
         </div>
       </Container>
     </section>

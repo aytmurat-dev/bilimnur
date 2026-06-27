@@ -1,17 +1,16 @@
 "use client";
 
-import { Clock, Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { Badge } from "@/components/ui/Badge";
 import { Icon } from "@/components/ui/Icon";
 import { site } from "@/lib/site";
 import { courses } from "@/lib/data";
 
 export function Courses() {
   return (
-    <section id="courses" className="relative overflow-hidden bg-ink-50 py-20 sm:py-28">
+    <section id="courses" className="relative overflow-hidden bg-ink-50 py-14 sm:py-20 lg:py-28">
       {/* Murakkab orqa fon dekoratsiyalari */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)] opacity-70" />
       <div className="pointer-events-none absolute -left-40 top-1/3 -z-10 h-96 w-96 rounded-full bg-primary-100/40 blur-3xl" />
@@ -65,9 +64,9 @@ export function Courses() {
                   <div className="my-6 border-t border-dashed border-ink-100" />
 
                   {/* Asosiy Xususiyatlar */}
-                  <h5 className="text-xs font-bold uppercase tracking-wider text-ink-400">
+                  <p className="text-xs font-bold uppercase tracking-wider text-ink-500">
                     Kursda o'rganiladi:
-                  </h5>
+                  </p>
                   <ul className="mt-3 space-y-2.5">
                     {course.highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2.5 text-sm font-medium text-ink-700">
@@ -86,7 +85,7 @@ export function Courses() {
                     href={site.social.telegram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-ink-50 py-3 text-center text-sm font-bold text-ink-800 transition-all duration-300 group-hover:bg-primary-600 group-hover:text-white group-hover:shadow-glow active:scale-[0.98]"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-ink-50 py-3 text-center text-sm font-bold text-ink-800 transition-all duration-300 group-hover:bg-primary-600 group-hover:text-white group-hover:shadow-glow active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                   >
                     <span>Xabardor bo'lish</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -117,7 +116,7 @@ export function Courses() {
               <div className="mt-8">
                 <a
                   href="#contact"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary-600 py-3 text-center text-sm font-bold text-white shadow-soft transition-all duration-300 hover:bg-primary-700 hover:shadow-glow"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary-600 py-3 text-center text-sm font-bold text-white shadow-soft transition-all duration-300 hover:bg-primary-700 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                 >
                   Biz bilan bog'lanish
                   <ArrowRight className="h-4 w-4" />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 
@@ -9,13 +9,21 @@ const inter = Inter({
   display: "swap",
 });
 
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const siteTitle = "BILIMNUR — SAT, olimpiada va IELTS tayyorgarlik platformasi";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: `${site.name} — ${site.tagline}`,
-    template: `%s — ${site.name}`,
-  },
+  title: siteTitle,
   description: site.description,
+  alternates: {
+    canonical: site.url,
+  },
   keywords: [
     "bilimnur",
     "SAT kurslari",
@@ -28,17 +36,22 @@ export const metadata: Metadata = {
     "ta'lim platformasi",
     "online kurslar",
   ],
-  authors: [{ name: site.name }],
+  authors: [{ name: "BILIMNUR" }],
   openGraph: {
     type: "website",
     locale: "uz_UZ",
     url: site.url,
-    title: `${site.name} — ${site.tagline}`,
+    title: siteTitle,
     description: site.description,
-    siteName: site.name,
+    siteName: "BILIMNUR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: site.description,
   },
   icons: {
-    icon: "/logo.svg",
+    icon: "/logo.png",
   },
 };
 
@@ -48,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uz" className={`${inter.variable} h-full antialiased`}>
+    <html lang="uz" className={`${inter.variable} ${jakarta.variable} h-full antialiased`}>
       <body className="min-h-full bg-white text-ink-900">{children}</body>
     </html>
   );

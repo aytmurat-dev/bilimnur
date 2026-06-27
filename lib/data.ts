@@ -73,37 +73,40 @@ export type Book = {
   /** Muqova bo'lmasa ishlatiladigan gradient rang */
   accent: string;
   tag?: string;
+  demoUrl?: string;
 };
 
 export const books: Book[] = [
   {
     id: "book-1",
-    title: "Matematika — asoslardan murakkabga",
+    title: "Prezident va ixtisoslashtirilgan maktabga topshiruvchilar uchun qo'llanma",
     author: "Bilimnur asoschilari",
     description:
-      "Maktab va imtihon dasturiga mos, qadam-baqadam tushuntirilgan masalalar to'plami va nazariy qo'llanma.",
-    cover: "/images/books/math.png",
+      "Prezident va ixtisoslashtirilgan maktablar imtihonlariga tayyorlanish uchun matematika fanidan mukammal qo'llanma.",
+    cover: "/images/books/pr_matematika.jpg",
     accent: "from-primary-500 to-primary-800",
     tag: "Bestseller",
+    demoUrl: "/docs/pr_matematika_demo.pdf",
   },
   {
     id: "book-2",
-    title: "Ingliz tili grammatikasi qo'llanmasi",
+    title: "Kenguru xalqaro olimpiadasi masalalari",
     author: "Bilimnur asoschilari",
     description:
-      "IELTS va Multilevel imtihonlariga tayyorlanuvchilar uchun amaliy grammatika va so'z boyligi qo'llanmasi.",
-    cover: "/images/books/english.png",
+      "Kenguru xalqaro matematika olimpiadasi masalalari (O'zbek va qoraqalpoq tillarida).",
+    cover: "/images/books/kenguru.jpg",
     accent: "from-accent-400 to-accent-700",
+    demoUrl: "/docs/kenguru_demo.pdf",
   },
   {
     id: "book-3",
-    title: "Olimpiada masalalari to'plami",
+    title: "Mantiqiy savollar va tanqidiy fikrlar",
     author: "Bilimnur asoschilari",
     description:
-      "Tanlangan olimpiada masalalari va batafsil yechimlar — kuchli o'quvchilar uchun mo'ljallangan.",
-    cover: "/images/books/olympiad.png",
+      "Prezident maktabi imtihonlari 2-bosqichi uchun qo'llanma.",
+    cover: "/images/books/logic_criticial_thinking.jpg",
     accent: "from-ink-600 to-ink-900",
-    tag: "Yangi",
+    demoUrl: "/docs/logic_criticial_thinking_demo.pdf",
   },
 ];
 

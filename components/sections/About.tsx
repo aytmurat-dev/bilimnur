@@ -17,10 +17,10 @@ const missionPoints = [
 // Rang mavzulari har bir afzallik kartasi uchun
 const themeStyles = [
   {
-    bg: "from-blue-50 to-indigo-50/40",
-    text: "text-blue-600",
-    border: "group-hover:border-blue-200",
-    glow: "group-hover:text-blue-100/50",
+    bg: "from-emerald-50 to-green-50/40",
+    text: "text-emerald-600",
+    border: "group-hover:border-emerald-200",
+    glow: "group-hover:text-emerald-100/50",
   },
   {
     bg: "from-amber-50 to-orange-50/40",
@@ -29,22 +29,22 @@ const themeStyles = [
     glow: "group-hover:text-amber-100/50",
   },
   {
-    bg: "from-purple-50 to-indigo-50/40",
-    text: "text-purple-600",
-    border: "group-hover:border-purple-200",
-    glow: "group-hover:text-purple-100/50",
-  },
-  {
     bg: "from-teal-50 to-emerald-50/40",
     text: "text-teal-600",
     border: "group-hover:border-teal-200",
     glow: "group-hover:text-teal-100/50",
   },
+  {
+    bg: "from-green-50 to-emerald-50/40",
+    text: "text-green-600",
+    border: "group-hover:border-green-200",
+    glow: "group-hover:text-green-100/50",
+  },
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-20 sm:py-28">
+    <section id="about" className="relative overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pb-28">
       {/* Dekorativ orqa fon */}
       <div className="pointer-events-none absolute -left-20 top-10 -z-10 h-72 w-72 rounded-full bg-primary-50/40 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-10 -z-10 h-72 w-72 rounded-full bg-accent-50/30 blur-3xl" />
@@ -52,8 +52,13 @@ export function About() {
       <Container>
         <SectionHeading
           eyebrow="Platforma haqida"
-          title="Bilimnur — natijaga yo'naltirilgan ta'lim makoni"
-          description="Bilimnur o'quvchilarni xalqaro va milliy imtihonlarga, olimpiadalarga hamda nufuzli maktablarga puxta tayyorlaydi. Maqsadimiz — sifatli bilimni har bir o'quvchiga yetkazish."
+          title={
+            <>
+              <span className="text-primary-600 font-black">BILIM</span>
+              <span className="text-accent-500 font-black">NUR</span> — natijaga yo'naltirilgan ta'lim makoni
+            </>
+          }
+          description="BILIMNUR o'quvchilarni xalqaro va milliy imtihonlarga, olimpiadalarga hamda nufuzli maktablarga puxta tayyorlaydi. Maqsadimiz — sifatli bilimni har bir o'quvchiga yetkazish."
         />
 
         {/* Missiya + afzalliklar yangi dizaynda */}
@@ -82,9 +87,9 @@ export function About() {
                 </div>
 
                 <div className="mt-8 space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-ink-400">
+                  <p className="text-xs font-bold uppercase tracking-wider text-ink-500">
                     Asosiy tamoyillarimiz:
-                  </h4>
+                  </p>
                   {missionPoints.map((point) => (
                     <div
                       key={point}
@@ -136,9 +141,9 @@ export function About() {
                           <Icon name={feature.icon} className="h-6 w-6" />
                         </div>
 
-                        <h4 className="mt-6 text-lg font-bold text-ink-900 group-hover:text-primary-600 transition-colors">
+                        <h3 className="mt-6 text-lg font-bold text-ink-900 group-hover:text-primary-600 transition-colors">
                           {feature.title}
-                        </h4>
+                        </h3>
 
                         <p className="mt-2 text-sm leading-relaxed text-ink-600">
                           {feature.description}

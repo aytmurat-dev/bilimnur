@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const variants: Variants = {
@@ -27,7 +27,19 @@ export function Reveal({
   className?: string;
   as?: "div" | "li" | "span";
 }) {
+  const reduceMotion = useReducedMotion();
   const MotionTag = motion[as] as typeof motion.div;
+
+  // Harakatni kamaytirish so'ralsa: animatsiyasiz, darrov to'liq ko'rinadigan holatda
+  // ko'rsatamiz (kontent hech qachon ko'rinmay qolib ketmasligi uchun ham muhim).
+  if (reduceMotion) {
+    return (
+      <MotionTag className={cn(className)} initial={false} animate={{ opacity: 1, y: 0 }}>
+        {children}
+      </MotionTag>
+    );
+  }
+
   return (
     <MotionTag
       className={cn(className)}
